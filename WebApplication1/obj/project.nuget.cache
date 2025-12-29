@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "dgSpecHash": "TRrs1RkF1b8gxD+ZOepDu4cROCRIfRSI5+StOUWtIV0gDCu0pIhQGZlEjRmeWteAimqW+Vk6P/UBXi06NrQ80A==",
+  "success": false,
+  "projectFilePath": "C:\\Users\\muskanlnu\\Downloads\\0demo-20251229T075339Z-1-001\\0demo\\demo\\WebApplication1\\WebApplication1.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1100",
+      "level": "Error",
+      "message": "Unable to resolve 'Microsoft.Azure.Cosmos (>= 3.29.0)' for 'net6.0'.",
+      "libraryId": "Microsoft.Azure.Cosmos",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1100",
+      "level": "Error",
+      "message": "Unable to resolve 'Swashbuckle.AspNetCore (>= 6.2.3)' for 'net6.0'.",
+      "libraryId": "Swashbuckle.AspNetCore",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
+}

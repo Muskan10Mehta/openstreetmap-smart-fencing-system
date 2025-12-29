@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\WebApplication1",
+    "\\WebApplication1\\Controllers",
+    "\\WebApplication1\\Model",
+    "\\WebApplication1\\Properties",
+    "\\WebApplication1\\Properties\\ServiceDependencies",
+    "\\WebApplication1\\Properties\\ServiceDependencies\\WebApplication1-demo - Web Deploy",
+    "\\WebApplication1\\Services"
+  ],
+  "SelectedNode": "\\WebApplication1\\Controllers\\ItemsController.cs",
+  "PreviewInSolutionExplorer": false
+}
