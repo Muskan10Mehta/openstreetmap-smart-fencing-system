@@ -1,4 +1,4 @@
-"# Goldeneye - Geofence Tracker
+# Goldeneye - Geofence Tracker
 
 A web application for creating virtual geographic boundaries (geofences) and tracking objects within them. When an object moves outside the defined fence area, an alert is triggered.
 
