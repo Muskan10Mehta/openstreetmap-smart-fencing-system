@@ -28,7 +28,7 @@ namespace WebApplication1.Services
             await _container.DeleteItemAsync<Demo>(id, new PartitionKey(id));
         }
 
-        public async Task<Demo> GetAsync(string id)
+        public async Task<Demo?> GetAsync(string id)
         {
             try
             {

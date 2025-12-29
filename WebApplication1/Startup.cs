@@ -27,13 +27,14 @@ namespace WebApplication1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApplication1", Version = "v1" });
             });
-            services.AddSingleton<ICosmosDbService>(InitializeCosmosClientInstanceAsync(Configuration.GetSection("CosmosDb")).GetAwaiter().GetResult());
+            
+            // Use in-memory storage (no Cosmos DB required)
+            services.AddSingleton<ICosmosDbService, InMemoryDbService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +50,10 @@ namespace WebApplication1
 
             app.UseHttpsRedirection();
 
+            // Enable static files (for frontend)
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+
             app.UseRouting();
 
             app.UseAuthorization();
@@ -59,23 +64,5 @@ namespace WebApplication1
             });
         }
 
-        /// <summary>
-        /// Creates a Cosmos DB database and a container with the specified partition key. 
-        /// </summary>
-        /// <returns></returns>
-        private static async Task<CosmosDbService> InitializeCosmosClientInstanceAsync(IConfigurationSection configurationSection)
-        {
-            var databaseName = configurationSection["DatabaseName"];
-            var containerName = configurationSection["ContainerName"];
-            var account = configurationSection["Account"];
-            var key = configurationSection["Key"];
-
-            var client = new Microsoft.Azure.Cosmos.CosmosClient(account, key);
-            var database = await client.CreateDatabaseIfNotExistsAsync(databaseName);
-            await database.Database.CreateContainerIfNotExistsAsync(containerName, "/id");
-
-            var cosmosDbService = new CosmosDbService(client, databaseName, containerName);
-            return cosmosDbService;
-        }
     }
 }

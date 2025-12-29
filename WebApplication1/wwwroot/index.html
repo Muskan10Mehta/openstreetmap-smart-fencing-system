@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geofence Tracker</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>GoldenEye</h1>
+        
+        <div class="main-grid">
+            <!-- Map Section -->
+            <div class="map-section">
+                <div class="toolbar">
+                    <button id="draw-fence-btn">Draw Fence</button>
+                    <button id="clear-fence-btn">Clear</button>
+                    <button id="start-tracking-btn">Start Tracking</button>
+                    <button id="stop-tracking-btn" style="display:none;">Stop</button>
+                </div>
+                <div id="map"></div>
+                <div id="fence-status">
+                    <span id="status-indicator">●</span>
+                    <span id="status-text">No fence drawn</span>
+                </div>
+                
+                <!-- Alert -->
+                <div id="alert-panel" style="display:none;">
+                    <strong>BREACH ALERT!</strong>
+                    <span id="alert-details"></span>
+                    <button id="dismiss-alert-btn">OK</button>
+                </div>
+            </div>
+
+            <!-- Form Section -->
+            <div class="form-section">
+                <h2 id="form-title">Save Location</h2>
+                <form id="item-form">
+                    <input type="hidden" id="item-id">
+                    <input type="text" id="name" placeholder="Name *" required>
+                    <input type="email" id="email" placeholder="Email">
+                    <input type="tel" id="phone" placeholder="Phone">
+                    <div class="form-buttons">
+                        <button type="submit" id="submit-btn"><span class="btn-text">Save</span></button>
+                        <button type="button" id="cancel-btn" style="display:none;">Cancel</button>
+                    </div>
+                </form>
+
+                <h2>Saved Items</h2>
+                <button id="refresh-btn">Refresh</button>
+                <div id="loading">Loading...</div>
+                <div id="empty-state" style="display:none;">No items saved</div>
+                <table id="items-table" style="display:none;">
+                    <thead>
+                        <tr><th>Name</th><th>Email</th><th>Phone</th><th>Fence</th><th></th></tr>
+                    </thead>
+                    <tbody id="items-body"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="toast"></div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
